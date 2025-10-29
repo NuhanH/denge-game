@@ -27,8 +27,8 @@ export default function CardDisplay({ card }: CardDisplayProps) {
         </div>
 
         {/* Kart İçeriği */}
-        {card.type === 'shape' && card.shape ? (
-          <ShapeDisplay shape={card.shape} />
+        {card.type === 'shape' && card.image ? (
+          <ShapeDisplay image={card.image} name={card.name} />
         ) : (
           <ActionDisplay description={card.description || ''} />
         )}
@@ -37,33 +37,16 @@ export default function CardDisplay({ card }: CardDisplayProps) {
   );
 }
 
-// Şekil kartı gösterimi
-function ShapeDisplay({ shape }: { shape: number[][] }) {
-  const cellSize = 60; // Her hücre 60px
-  const maxCols = Math.max(...shape.map((row) => row.length));
-
+// Şekil kartı gösterimi (fotoğraf ile)
+function ShapeDisplay({ image, name }: { image: string; name: string }) {
   return (
     <div className="flex justify-center items-center py-6">
-      <div className="inline-block">
-        {shape.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex">
-            {row.map((cell, colIndex) => (
-              <div
-                key={colIndex}
-                className={`
-                  ${cell === 1 ? 'bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg' : 'bg-transparent'}
-                  border-2 border-gray-200 rounded-lg
-                `}
-                style={{
-                  width: `${cellSize}px`,
-                  height: `${cellSize}px`,
-                  margin: '4px',
-                }}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
+      <img
+        src={image}
+        alt={name}
+        className="max-w-xs w-full h-auto rounded-2xl shadow-xl"
+        style={{ maxHeight: '300px', objectFit: 'contain' }}
+      />
     </div>
   );
 }

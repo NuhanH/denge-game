@@ -8,6 +8,7 @@ export interface Card {
   description?: string;
   icon?: string;
   shape?: number[][]; // Şekil kartları için 2D grid (1 = dolu, 0 = boş)
+  image?: string; // Şekil kartları için fotoğraf yolu
   count?: number; // Her karttan kaç tane var
 }
 
@@ -16,106 +17,79 @@ export interface CardDeck {
   remaining: number;
 }
 
-// 9 farklı şekil kartı (Tetris benzeri bloklar)
+// 9 farklı şekil kartı
 // Her karttan 3'er tane
 const shapeCards: Card[] = [
   {
     id: 1,
     type: 'shape',
-    name: 'I Bloğu',
-    shape: [[1, 1, 1, 1]],
-    icon: '🟦',
+    name: 'Grass',
+    image: '/grass.png',
+    icon: '🌱',
     count: 3,
   },
   {
     id: 2,
     type: 'shape',
-    name: 'O Bloğu',
-    shape: [
-      [1, 1],
-      [1, 1],
-    ],
-    icon: '🟨',
+    name: 'Rainbow',
+    image: '/rainbow.png',
+    icon: '🌈',
     count: 3,
   },
   {
     id: 3,
     type: 'shape',
-    name: 'T Bloğu',
-    shape: [
-      [0, 1, 0],
-      [1, 1, 1],
-    ],
-    icon: '🟪',
+    name: 'Rock',
+    image: '/rock.png',
+    icon: '🪨',
     count: 3,
   },
   {
     id: 4,
     type: 'shape',
-    name: 'L Bloğu',
-    shape: [
-      [1, 0],
-      [1, 0],
-      [1, 1],
-    ],
-    icon: '🟧',
+    name: 'Seed',
+    image: '/seed.png',
+    icon: '🌾',
     count: 3,
   },
   {
     id: 5,
     type: 'shape',
-    name: 'J Bloğu',
-    shape: [
-      [0, 1],
-      [0, 1],
-      [1, 1],
-    ],
-    icon: '🟦',
+    name: 'Soil',
+    image: '/soil.png',
+    icon: '�',
     count: 3,
   },
   {
     id: 6,
     type: 'shape',
-    name: 'S Bloğu',
-    shape: [
-      [0, 1, 1],
-      [1, 1, 0],
-    ],
-    icon: '🟩',
+    name: 'Sun',
+    image: '/sun.png',
+    icon: '☀️',
     count: 3,
   },
   {
     id: 7,
     type: 'shape',
-    name: 'Z Bloğu',
-    shape: [
-      [1, 1, 0],
-      [0, 1, 1],
-    ],
-    icon: '🟥',
+    name: 'Tree',
+    image: '/tree.png',
+    icon: '🌳',
     count: 3,
   },
   {
     id: 8,
     type: 'shape',
-    name: 'Küçük L',
-    shape: [
-      [1, 0],
-      [1, 1],
-    ],
-    icon: '🟫',
+    name: 'Wave',
+    image: '/wave.png',
+    icon: '🌊',
     count: 3,
   },
   {
     id: 9,
     type: 'shape',
-    name: 'Plus Bloğu',
-    shape: [
-      [0, 1, 0],
-      [1, 1, 1],
-      [0, 1, 0],
-    ],
-    icon: '🟪',
+    name: 'Wind',
+    image: '/wind.png',
+    icon: '�',
     count: 3,
   },
 ];
