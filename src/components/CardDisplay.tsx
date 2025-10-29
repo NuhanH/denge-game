@@ -11,7 +11,7 @@ export default function CardDisplay({ card }: CardDisplayProps) {
       <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full">
         {/* Kart Başlığı */}
         <div className="text-center mb-6">
-          <div className="text-6xl mb-3">{card.icon}</div>
+          {card.type === 'action' && <div className="text-6xl mb-3">{card.icon}</div>}
           <h2 className="text-3xl font-bold text-gray-800">{card.name}</h2>
           <span
             className={`
@@ -22,7 +22,7 @@ export default function CardDisplay({ card }: CardDisplayProps) {
               }
             `}
           >
-            {card.type === 'shape' ? '🔷 Şekil Kartı' : '⚡ Hareket Kartı'}
+            {card.type === 'shape' ? '🔷 Block Card' : '⚡ Action Card'}
           </span>
         </div>
 
